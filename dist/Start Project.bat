@@ -1,0 +1,6 @@
+@echo off
+echo Starting React Portfolio Development Server...
+start cmd /k "npm run dev"
+echo Waiting for server to start...
+timeout /t 3 /nobreak > nul
+start http://localhost:5173/
