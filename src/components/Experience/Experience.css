@@ -1,0 +1,221 @@
+.experience {
+  position: relative;
+  background: var(--bg-secondary);
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+}
+
+/* Timeline Container */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Center Line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    var(--border-glow) 10%, 
+    var(--border-glow) 90%, 
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 40px;
+  margin-bottom: 60px;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+  position: absolute;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 4px solid var(--bg-secondary);
+  z-index: 10;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -8px;
+}
+
+.education-dot {
+  background: var(--text-primary);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Timeline Card */
+.timeline-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition-medium);
+}
+
+.timeline-item.left .timeline-card {
+  transform-origin: right center;
+}
+
+.timeline-item.right .timeline-card {
+  transform-origin: left center;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-card);
+}
+
+/* Timeline Arrow */
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.timeline-item.left .timeline-card::before {
+  right: -10px;
+  border-left: 10px solid var(--border-color);
+}
+
+.timeline-item.right .timeline-card::before {
+  left: -10px;
+  border-right: 10px solid var(--border-color);
+}
+
+/* Card Content */
+.timeline-period {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(108, 99, 255, 0.1);
+  border-radius: 50px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+}
+
+.timeline-card-icon {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 1.8rem;
+  opacity: 0.8;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-right: 40px;
+}
+
+.timeline-company {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timeline-tech-tag {
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 50px;
+}
+
+/* Education specific styles */
+.education-card .timeline-period {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 0 0 0 50px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 12px;
+    right: auto;
+  }
+
+  .timeline-item.left .timeline-card::before,
+  .timeline-item.right .timeline-card::before {
+    left: -10px;
+    right: auto;
+    border-left: none;
+    border-right: 10px solid var(--border-color);
+  }
+
+  .timeline-card {
+    padding: 24px;
+  }
+}
